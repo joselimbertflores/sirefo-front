@@ -37,6 +37,7 @@ import { AsfiFundTransfer, asfiRequestStatus } from '../../../domain';
 
 import {
   AsfiNoteDisplayComponent,
+  DataFormatDialogComponent,
   requestDetail,
   RequestDetailDialogComponent,
 } from '../../components';
@@ -62,6 +63,7 @@ import {
     DatePickerModule,
     SearchInputComponent,
     AsfiNoteDisplayComponent,
+    DataFormatDialogComponent
   ],
   templateUrl: './asfi-fund-tranfer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -86,6 +88,8 @@ export default class AsfiFundTranferComponent implements OnInit {
   selectedItem = signal<AsfiFundTransfer | null>(null);
 
   menuOptions = signal<MenuItem[]>([]);
+
+  isInfoDialogShowing = signal(false);
 
   protected formMessages: FieldValidationErrorMessages = {
     requestingAuthority: {

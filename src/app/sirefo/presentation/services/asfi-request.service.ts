@@ -1,7 +1,11 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpParams,
+} from '@angular/common/http';
 
-import { map } from 'rxjs';
+import { catchError, map, throwError } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
 import {
@@ -45,7 +49,28 @@ export class AsfiRequestService {
         ...form,
         details,
       })
-      .pipe(map((resp) => AsfiRequestMapper.fromResponse(resp)));
+      .pipe(
+        map((resp) => AsfiRequestMapper.fromResponse(resp)),
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 409 && error.error?.request) {
+            const model = AsfiRequestMapper.fromResponse(error.error.request);
+            return throwError(
+              () =>
+                new HttpErrorResponse({
+                  ...error,
+                  url: error.url ?? undefined,
+                  error: {
+                    ...error.error,
+                    request: model,
+                  },
+                })
+            );
+          }
+
+          // Otros errores, se reenvían sin tocar
+          return throwError(() => error);
+        })
+      );
   }
 
   getRequests({ isAproved, limit, offset, createdAt, ...props }: filterParams) {

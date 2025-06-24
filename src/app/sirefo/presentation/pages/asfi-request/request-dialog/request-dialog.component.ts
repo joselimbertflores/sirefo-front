@@ -276,7 +276,7 @@ export class RequestDialogComponent implements OnInit {
       maternalLastName: el['Apellido Materno'],
       paternalLastName: el['Apellido Paterno'],
       autoConclusion: el['Auto Conclusion'],
-      complement: el['Tipo Documento'],
+      complement: el["Complemento"],
       extension: el['Extension'],
       documentNumber: el['Numero Documento'],
       documentType: el['Tipo Documento'],

@@ -16,6 +16,7 @@ import { Popover, PopoverModule } from 'primeng/popover';
 import { DatePickerModule } from 'primeng/datepicker';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+import { TooltipModule } from 'primeng/tooltip';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
@@ -31,6 +32,7 @@ import { AsfiRequestService, FileUploadService } from '../../services';
 import { AsfiRequest, asfiRequestStatus } from '../../../domain';
 import {
   AsfiNoteDisplayComponent,
+  DataFormatDialogComponent,
   requestDetail,
   RequestDetailDialogComponent,
 } from '../../components';
@@ -48,6 +50,7 @@ import { RequestDialogComponent } from './request-dialog/request-dialog.componen
     PaginatorModule,
     InputIconModule,
     IconFieldModule,
+    TooltipModule,
     ToolbarModule,
     DialogModule,
     ButtonModule,
@@ -58,6 +61,7 @@ import { RequestDialogComponent } from './request-dialog/request-dialog.componen
     SelectModule,
     SearchInputComponent,
     AsfiNoteDisplayComponent,
+    DataFormatDialogComponent
   ],
   templateUrl: './asfi-request.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -99,6 +103,8 @@ export default class AsfiRequestComponent implements OnInit {
     processType: [''],
     status: [''],
   });
+
+   isInfoDialogShowing = signal(false);
 
   ngOnInit(): void {
     this.getData();

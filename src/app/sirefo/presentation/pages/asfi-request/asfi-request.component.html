@@ -1,7 +1,22 @@
 <div class="flex items-center justify-between">
   <span class="font-medium text-2xl">Retenciones / Suspensiones</span>
-  <div class="flex gap-x-4">
-    <p-button icon="pi pi-filter" (click)="op.toggle($event)" />
+  <div class="flex gap-x-2">
+    <p-button
+      icon="pi pi-question"
+      (onClick)="isInfoDialogShowing.set(true)"
+      pTooltip="Descripcion de datos"
+      tooltipPosition="bottom"
+    />
+    <a
+      severity="secondary"
+      class="p-button"
+      href="files/Formato-Retencion-Suspension.ods"
+      pTooltip="Descargar plantilla datos"
+      tooltipPosition="bottom"
+    >
+      <i class="pi pi-arrow-down"></i>
+    </a>
+    <p-button icon="pi pi-filter"  pTooltip="Filtros"  tooltipPosition="bottom" (click)="op.toggle($event)" />
     <p-button label="Agregar" icon="pi pi-plus" (onClick)="create()" />
   </div>
 </div>
@@ -112,6 +127,11 @@
   [(visible)]="isShowingFile"
 />
 }
+
+@if(isInfoDialogShowing()){
+<data-format-dialog [(isVisible)]="isInfoDialogShowing" mode="asfi-request" />
+}
+
 
 <p-popover #op>
   <div class="flex flex-col gap-4 w-[25rem] p-2">
