@@ -1,59 +1,47 @@
-# AsfiFront
+# Sistema de Gestión de Retenciones, Suspensiones y Remisión de Fondos - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+Aplicación frontend del sistema de **Gestión de Retenciones, Suspensiones y Remisión de Fondos**.
 
-## Development server
+## Descripción
 
-To start a local development server, run:
+Este sistema permite gestionar procesos de retención, suspensión y remisión de fondos, así como consultar y dar seguimiento a las operaciones, interoperando con el sistema SIREFO de la ASFI.
+
+## Funcionalidades principales
+
+- Registro y gestión de retenciones
+- Gestión de suspensiones
+- Remisión de fondos
+- Consulta y seguimiento de operaciones
+- Integración con el sistema SIREFO
+
+## Requisitos previos
+
+Antes de iniciar, asegúrate de tener instalado:
+
+- Node.js
+- npm
+- Angular CLI
+
+## Instalación
+
+```bash
+npm install
+```
+
+## Configuración
+
+Configura las variables y entornos necesarios en los archivos de ambiente del proyecto según corresponda.
+
+## Ejecución del proyecto
+
+### Modo desarrollo
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### Modo producción
 
 ```bash
 ng build
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
